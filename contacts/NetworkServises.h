@@ -10,6 +10,6 @@
 
 @interface NetworkServises : NSObject
 
-+(void) getFromNetworkWithCompletionHandler:(void (^)(NSDictionary* result))completionHandler;
++ (void)downloadFromURL:(NSURL *)url withCompletionHandler:(void (^)(NSDictionary* result))completionHandler;
 
 @end
