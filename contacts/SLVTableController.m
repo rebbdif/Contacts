@@ -6,12 +6,12 @@
 //  Copyright © 2017 iOS-School-1. All rights reserved.
 //
 
-#import "TableController.h"
-#import "Model.h"
-#import "ContactInfo.h"
-#import "DetailedInfoViewController.h"
-#import "ContactCell.h"
-#import "VKLoginViewController.h"
+#import "SLVTableController.h"
+#import "SLVModel.h"
+#import "SLVContactInfo.h"
+#import "SLVDetailedInfoViewController.h"
+#import "SLVContactCell.h"
+#import "SLVVKLoginViewController.h"
 @import FBSDKLoginKit;
 @import FBSDKCoreKit;
 
@@ -22,55 +22,55 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
     SelectedSocialNetworkFacebook
 };
 
-@interface TableController ()
+@interface SLVTableController ()
 
-@property(strong,nonatomic) Model * model;
-@property(strong,nonatomic) UITableView *tableView;
-@property(strong,nonatomic) UIToolbar *bottomBar;
-@property(assign,nonatomic) SelectedSocialNetwork selectedSocialNetwork;
-@property(strong,nonatomic) UIButton *loginButton;
+@property (strong, nonatomic) SLVModel * model;
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIToolbar *bottomBar;
+@property (assign, nonatomic) SelectedSocialNetwork selectedSocialNetwork;
+@property (strong, nonatomic) UIButton *loginButton;
 
 @end
 
-@implementation TableController
+@implementation SLVTableController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     CGRect frame = self.view.frame;
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
     [self.view addSubview:self.tableView];
     self.tableView.rowHeight = 56;
-    self.tableView.delegate=self;
-    self.tableView.dataSource=self;
-    [self.tableView registerClass:[ContactCell class] forCellReuseIdentifier:@"Cell"];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[SLVContactCell class] forCellReuseIdentifier:@"Cell"];
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:@[@"VK", @"FB"]];
-    segmentedControl.selectedSegmentIndex=0;
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"VK", @"FB"]];
+    segmentedControl.selectedSegmentIndex = 0;
     [segmentedControl addTarget:self action:@selector(segmentedControlDidChangeValue:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:segmentedControl];
     
-    self.loginButton=[UIButton new];
-    self.loginButton.frame=CGRectMake(0,0,60,20);
+    self.loginButton = [UIButton new];
+    self.loginButton.frame = CGRectMake(0,0,60,20);
     self.loginButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.loginButton setTitle: @"Log in" forState: UIControlStateNormal];
     [self.loginButton setTitleColor: UIColor.redColor forState:UIControlStateNormal];
     [self.loginButton addTarget:self action:@selector(loginButtonClicked) forControlEvents: UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.loginButton];
     
-    self.navigationItem.title=@"Contacts";
-    self.model=[Model new];
+    self.navigationItem.title = @"Contacts";
+    self.model = [SLVModel new];
     self.selectedSocialNetwork = SelectedSocialNetworkVkontakte;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.selectedSocialNetwork == SelectedSocialNetworkVkontakte) {
-        if ([VKLoginViewController currentAccessToken]){
+        if ([SLVVKLoginViewController currentAccessToken]){
             [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
             [self.loginButton setTitleColor: UIColor.blueColor forState:UIControlStateNormal];
-            __weak typeof(self) weakSelf=self;
+            __weak typeof(self) weakSelf = self;
             [self.model getNamesWithCompletionHandler:^{
                 [weakSelf.tableView reloadData];
             }];
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
         if ([FBSDKAccessToken currentAccessToken]) {
             [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
             [self.loginButton setTitleColor: UIColor.blueColor forState:UIControlStateNormal];
-            __weak typeof(self) weakSelf=self;
+            __weak typeof(self) weakSelf = self;
             [self.model getContactsFromFacebookWithCompletionHandler:^{
                 [weakSelf.tableView reloadData];
             }];
@@ -88,19 +88,19 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
 }
 
 - (IBAction)segmentedControlDidChangeValue:(UISegmentedControl *)segmentedControl {
-    self.model.contacts=nil;
-    self.bottomBar.items=nil;
+    self.model.contacts = nil;
+    self.bottomBar.items = nil;
     [self.tableView reloadData];
     switch (segmentedControl.selectedSegmentIndex) {
         case 0: {
             self.selectedSocialNetwork = SelectedSocialNetworkVkontakte;
-            if (![VKLoginViewController currentAccessToken]){
+            if (![SLVVKLoginViewController currentAccessToken]) {
                 [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
                 [self.loginButton setTitleColor: UIColor.redColor forState:UIControlStateNormal];
             } else {
                 [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
                 [self.loginButton setTitleColor: UIColor.blueColor forState:UIControlStateNormal];
-                __weak typeof(self) weakSelf=self;
+                __weak typeof(self) weakSelf = self;
                 [self.model getNamesWithCompletionHandler:^{
                     [weakSelf.tableView reloadData];
                 }];
@@ -126,15 +126,14 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
 
 #pragma mark - UITableView DataSource
 
-- (ContactCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ContactCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    ContactInfo* contact = self.model.contacts[indexPath.row];
-    cell.nameLabel.text=[NSString stringWithFormat:@"%@, %@",contact.name,contact.surname];
-    cell.titleLabel.text=[NSString stringWithFormat:@"%@%@",[contact.name substringToIndex:1],[contact.surname substringToIndex:1]];
+- (SLVContactCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+   SLVContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    SLVContactInfo *contact = self.model.contacts[indexPath.row];
+    cell.nameLabel.text=[NSString stringWithFormat:@"%@, %@", contact.name, contact.surname];
+    cell.titleLabel.text=[NSString stringWithFormat:@"%@%@", [contact.name substringToIndex:1], [contact.surname substringToIndex:1]];
     
-    NSUInteger hash=[cell.titleLabel.text substringToIndex:1].hash;
-    
-    cell.titleLabel.layer.backgroundColor=[UIColor colorWithRed:(hash%7)/7.0 green:(hash%49)/49.0 blue:(hash%343)/343.0 alpha:1].CGColor;
+    NSUInteger hash = [cell.titleLabel.text substringToIndex:1].hash;
+    cell.titleLabel.layer.backgroundColor = [UIColor colorWithRed:(hash % 7) / 7.0 green:(hash % 49) / 49.0 blue:(hash % 343) / 343.0 alpha:1].CGColor;
     
     return cell;
 }
@@ -151,18 +150,18 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
 # pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ContactCell *cell=[self.tableView cellForRowAtIndexPath:indexPath];
+    SLVContactCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     UIGraphicsBeginImageContext(cell.titleLabel.frame.size);
     [cell.titleLabel.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    DetailedInfoViewController *dvc=[DetailedInfoViewController new];
-    ContactInfo* contact = self.model.contacts[indexPath.row];
-    dvc.name=contact.name;
-    dvc.surname=contact.surname;
-    dvc.titleImage=image;
+    SLVDetailedInfoViewController *dvc = [SLVDetailedInfoViewController new];
+    SLVContactInfo* contact = self.model.contacts[indexPath.row];
+    dvc.name = contact.name;
+    dvc.surname = contact.surname;
+    dvc.titleImage = image;
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
@@ -175,7 +174,7 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
     }
     
     if (self.selectedSocialNetwork == SelectedSocialNetworkVkontakte) {
-        [self.navigationController pushViewController:[VKLoginViewController new] animated:YES];
+        [self.navigationController pushViewController:[SLVVKLoginViewController new] animated:YES];
     } else if (self.selectedSocialNetwork == SelectedSocialNetworkFacebook) {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
         [login logInWithReadPermissions: @[@"public_profile"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
@@ -185,7 +184,7 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
                 NSLog(@"Cancelled");
             } else {
                 NSLog(@"Logged in");
-                __weak typeof(self) weakSelf=self;
+                __weak typeof(self) weakSelf = self;
                 [self.model getContactsFromFacebookWithCompletionHandler:^{
                     [weakSelf.tableView reloadData];
                 }];
@@ -196,7 +195,7 @@ typedef NS_ENUM(NSInteger, SelectedSocialNetwork){
 
 - (void)logout {
     if (self.selectedSocialNetwork == SelectedSocialNetworkVkontakte) {
-        [VKLoginViewController logout];
+        [SLVVKLoginViewController logout];
     } else if (self.selectedSocialNetwork == SelectedSocialNetworkFacebook) {
         FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
         [loginManager logOut];

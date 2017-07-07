@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VKLoginViewController : UIViewController
+@interface SLVVKLoginViewController : UIViewController
 
 + (NSString *)currentAccessToken;
 + (NSString *)currentUser;

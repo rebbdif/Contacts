@@ -6,22 +6,22 @@
 //  Copyright © 2017 iOS-School-1. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "TableController.h"
+#import "SLVAppDelegate.h"
+#import "SLVTableController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface AppDelegate ()
+@interface SLVAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation SLVAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    TableController *vc=[TableController new];
-    UINavigationController *nvc=[[UINavigationController alloc]initWithRootViewController:vc];
-    self.window.rootViewController=nvc;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    SLVTableController *tableController = [SLVTableController new];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:tableController];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -38,7 +38,6 @@
                                                         sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
                                                                annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
                     ];
-    // Add any custom logic here.
     return handled;
 }
 

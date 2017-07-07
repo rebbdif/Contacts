@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NetworkServises : NSObject
+@interface SLVNetworkServises : NSObject
 
 + (void)downloadFromURL:(NSURL *)url withCompletionHandler:(void (^)(NSDictionary* result))completionHandler;
 

@@ -6,15 +6,16 @@
 //  Copyright © 2017 iOS-School-1. All rights reserved.
 //
 
-#import "VKLoginViewController.h"
+#import "SLVVKLoginViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface VKLoginViewController () <WKNavigationDelegate>
+@interface SLVVKLoginViewController () <WKNavigationDelegate>
+
 @end
 
 static NSString *const appID =@"6037307";
 
-@implementation VKLoginViewController
+@implementation SLVVKLoginViewController
 
 + (NSString *)currentAccessToken {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -41,11 +42,11 @@ static NSString *const appID =@"6037307";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     WKWebView *webView = [[WKWebView alloc]initWithFrame:self.view.bounds];
-    webView.navigationDelegate=self;
+    webView.navigationDelegate = self;
     [self.view addSubview:webView];
     
-    NSString *url=@"https://oauth.vk.com/authorize?client_id=6037307&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.63&state=123456";
-    NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSString *url = @"https://oauth.vk.com/authorize?client_id=6037307&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.63&state=123456";
+    NSURLRequest *nsurlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [webView loadRequest:nsurlRequest];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
@@ -54,26 +55,19 @@ static NSString *const appID =@"6037307";
     NSLog(@"webView didFinishNavigation");
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     NSString *responseURL = webView.URL.absoluteString;
-    if ([responseURL rangeOfString:@"access_token"].location != NSNotFound)
-    {
-        NSRange tokenBegin=[responseURL rangeOfString:@"access_token="];
-        NSString *accessToken0=[responseURL substringFromIndex:tokenBegin.location+tokenBegin.length];
-        NSRange tokenEnd=[accessToken0 rangeOfString:@"&"];
-        NSString *accessToken1=[accessToken0 substringToIndex:tokenEnd.location];
-        
-        NSRange userIdRange=[responseURL rangeOfString:@"user_id="];
-        NSString *userId0=[responseURL substringFromIndex:userIdRange.location+userIdRange.length];
-        NSRange userIdEnd=[userId0 rangeOfString:@"&" ];
-        NSString *userId1=[userId0 substringToIndex:userIdEnd.location];
-        
+    if ([responseURL rangeOfString:@"access_token"].location != NSNotFound) {
+        NSRange tokenBegin = [responseURL rangeOfString:@"access_token="];
+        NSString *accessToken0 = [responseURL substringFromIndex:tokenBegin.location + tokenBegin.length];
+        NSRange tokenEnd = [accessToken0 rangeOfString:@"&"];
+        NSString *accessToken1 = [accessToken0 substringToIndex:tokenEnd.location];
+        NSRange userIdRange = [responseURL rangeOfString:@"user_id="];
+        NSString *userId0 = [responseURL substringFromIndex:userIdRange.location + userIdRange.length];
+        NSRange userIdEnd = [userId0 rangeOfString:@"&" ];
+        NSString *userId1 = [userId0 substringToIndex:userIdEnd.location];
         [self saveAccessToken:accessToken1 andLogin:userId1];
-        
         [self.navigationController popViewControllerAnimated:YES];
-        
     } else if ([responseURL rangeOfString:@"error"].location != NSNotFound) {
-        NSLog(@"Error: %@", webView.URL.absoluteString);
-        
-        UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"something went wrong :(" message:@"Check your internet connection and try again!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"something went wrong :(" message:@"Check your internet connection and try again!" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {}];
         [alert addAction:defaultAction];
@@ -86,7 +80,5 @@ static NSString *const appID =@"6037307";
     [defaults setObject:accessToken forKey:@"vkToken"];
     [defaults setObject:login forKey:@"userID"];
 }
-
-
 
 @end

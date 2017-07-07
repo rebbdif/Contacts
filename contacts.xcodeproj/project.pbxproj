@@ -15,17 +15,17 @@
 		04B020361EB9036300D00219 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B020331EB9036300D00219 /* FBSDKCoreKit.framework */; };
 		04B020381EB9036700D00219 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B020371EB9036700D00219 /* FBSDKShareKit.framework */; };
 		04B6AC5D1EAFB01A00D681FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC5C1EAFB01A00D681FF /* main.m */; };
-		04B6AC601EAFB01A00D681FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC5F1EAFB01A00D681FF /* AppDelegate.m */; };
-		04B6AC631EAFB01A00D681FF /* TableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC621EAFB01A00D681FF /* TableController.m */; };
+		04B6AC601EAFB01A00D681FF /* SLVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC5F1EAFB01A00D681FF /* SLVAppDelegate.m */; };
+		04B6AC631EAFB01A00D681FF /* SLVTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC621EAFB01A00D681FF /* SLVTableController.m */; };
 		04B6AC681EAFB01A00D681FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B6AC671EAFB01A00D681FF /* Assets.xcassets */; };
 		04B6AC6B1EAFB01A00D681FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B6AC691EAFB01A00D681FF /* LaunchScreen.storyboard */; };
 		04B6AC761EAFB01A00D681FF /* contactsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC751EAFB01A00D681FF /* contactsTests.m */; };
-		04B6AC891EAFB2CE00D681FF /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC881EAFB2CE00D681FF /* Model.m */; };
-		04B6AC8D1EAFB6C000D681FF /* ContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC8C1EAFB6C000D681FF /* ContactInfo.m */; };
-		04B6AC901EAFBC6B00D681FF /* DetailedInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC8F1EAFBC6B00D681FF /* DetailedInfoViewController.m */; };
-		04B6AC931EAFC2A100D681FF /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC921EAFC2A100D681FF /* ContactCell.m */; };
-		04C33FD41EB255DF008F570E /* NetworkServises.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C33FD31EB255DF008F570E /* NetworkServises.m */; };
-		6360DE161ECDA7510080CBFA /* VKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360DE151ECDA7510080CBFA /* VKLoginViewController.m */; };
+		04B6AC891EAFB2CE00D681FF /* SLVModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC881EAFB2CE00D681FF /* SLVModel.m */; };
+		04B6AC8D1EAFB6C000D681FF /* SLVContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC8C1EAFB6C000D681FF /* SLVContactInfo.m */; };
+		04B6AC901EAFBC6B00D681FF /* SLVDetailedInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC8F1EAFBC6B00D681FF /* SLVDetailedInfoViewController.m */; };
+		04B6AC931EAFC2A100D681FF /* SLVContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6AC921EAFC2A100D681FF /* SLVContactCell.m */; };
+		04C33FD41EB255DF008F570E /* SLVNetworkServises.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C33FD31EB255DF008F570E /* SLVNetworkServises.m */; };
+		6360DE161ECDA7510080CBFA /* SLVVKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360DE151ECDA7510080CBFA /* SLVVKLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,28 +48,28 @@
 		04B020371EB9036700D00219 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = contacts/Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		04B6AC581EAFB01A00D681FF /* contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B6AC5C1EAFB01A00D681FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		04B6AC5E1EAFB01A00D681FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		04B6AC5F1EAFB01A00D681FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		04B6AC611EAFB01A00D681FF /* TableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableController.h; sourceTree = "<group>"; };
-		04B6AC621EAFB01A00D681FF /* TableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableController.m; sourceTree = "<group>"; };
+		04B6AC5E1EAFB01A00D681FF /* SLVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLVAppDelegate.h; sourceTree = "<group>"; };
+		04B6AC5F1EAFB01A00D681FF /* SLVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLVAppDelegate.m; sourceTree = "<group>"; };
+		04B6AC611EAFB01A00D681FF /* SLVTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLVTableController.h; sourceTree = "<group>"; };
+		04B6AC621EAFB01A00D681FF /* SLVTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLVTableController.m; sourceTree = "<group>"; };
 		04B6AC671EAFB01A00D681FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B6AC6A1EAFB01A00D681FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B6AC6C1EAFB01A00D681FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B6AC711EAFB01A00D681FF /* contactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = contactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B6AC751EAFB01A00D681FF /* contactsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = contactsTests.m; sourceTree = "<group>"; };
 		04B6AC771EAFB01A00D681FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04B6AC871EAFB2CE00D681FF /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		04B6AC881EAFB2CE00D681FF /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		04B6AC8B1EAFB6C000D681FF /* ContactInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactInfo.h; sourceTree = "<group>"; };
-		04B6AC8C1EAFB6C000D681FF /* ContactInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactInfo.m; sourceTree = "<group>"; };
-		04B6AC8E1EAFBC6B00D681FF /* DetailedInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedInfoViewController.h; sourceTree = "<group>"; };
-		04B6AC8F1EAFBC6B00D681FF /* DetailedInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedInfoViewController.m; sourceTree = "<group>"; };
-		04B6AC911EAFC2A100D681FF /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
-		04B6AC921EAFC2A100D681FF /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
-		04C33FD21EB255DF008F570E /* NetworkServises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkServises.h; sourceTree = "<group>"; };
-		04C33FD31EB255DF008F570E /* NetworkServises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkServises.m; sourceTree = "<group>"; };
-		6360DE141ECDA7510080CBFA /* VKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKLoginViewController.h; sourceTree = "<group>"; };
-		6360DE151ECDA7510080CBFA /* VKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKLoginViewController.m; sourceTree = "<group>"; };
+		04B6AC871EAFB2CE00D681FF /* SLVModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVModel.h; sourceTree = "<group>"; };
+		04B6AC881EAFB2CE00D681FF /* SLVModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVModel.m; sourceTree = "<group>"; };
+		04B6AC8B1EAFB6C000D681FF /* SLVContactInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVContactInfo.h; sourceTree = "<group>"; };
+		04B6AC8C1EAFB6C000D681FF /* SLVContactInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVContactInfo.m; sourceTree = "<group>"; };
+		04B6AC8E1EAFBC6B00D681FF /* SLVDetailedInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVDetailedInfoViewController.h; sourceTree = "<group>"; };
+		04B6AC8F1EAFBC6B00D681FF /* SLVDetailedInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVDetailedInfoViewController.m; sourceTree = "<group>"; };
+		04B6AC911EAFC2A100D681FF /* SLVContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVContactCell.h; sourceTree = "<group>"; };
+		04B6AC921EAFC2A100D681FF /* SLVContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVContactCell.m; sourceTree = "<group>"; };
+		04C33FD21EB255DF008F570E /* SLVNetworkServises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVNetworkServises.h; sourceTree = "<group>"; };
+		04C33FD31EB255DF008F570E /* SLVNetworkServises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVNetworkServises.m; sourceTree = "<group>"; };
+		6360DE141ECDA7510080CBFA /* SLVVKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVVKLoginViewController.h; sourceTree = "<group>"; };
+		6360DE151ECDA7510080CBFA /* SLVVKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVVKLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +162,8 @@
 		04B6AC841EAFB17900D681FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				04B6AC911EAFC2A100D681FF /* ContactCell.h */,
-				04B6AC921EAFC2A100D681FF /* ContactCell.m */,
+				04B6AC911EAFC2A100D681FF /* SLVContactCell.h */,
+				04B6AC921EAFC2A100D681FF /* SLVContactCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -171,12 +171,12 @@
 		04B6AC851EAFB18400D681FF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				04B6AC611EAFB01A00D681FF /* TableController.h */,
-				04B6AC621EAFB01A00D681FF /* TableController.m */,
-				6360DE141ECDA7510080CBFA /* VKLoginViewController.h */,
-				6360DE151ECDA7510080CBFA /* VKLoginViewController.m */,
-				04B6AC8E1EAFBC6B00D681FF /* DetailedInfoViewController.h */,
-				04B6AC8F1EAFBC6B00D681FF /* DetailedInfoViewController.m */,
+				04B6AC611EAFB01A00D681FF /* SLVTableController.h */,
+				04B6AC621EAFB01A00D681FF /* SLVTableController.m */,
+				6360DE141ECDA7510080CBFA /* SLVVKLoginViewController.h */,
+				6360DE151ECDA7510080CBFA /* SLVVKLoginViewController.m */,
+				04B6AC8E1EAFBC6B00D681FF /* SLVDetailedInfoViewController.h */,
+				04B6AC8F1EAFBC6B00D681FF /* SLVDetailedInfoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -187,8 +187,8 @@
 				04B6AC671EAFB01A00D681FF /* Assets.xcassets */,
 				04B6AC691EAFB01A00D681FF /* LaunchScreen.storyboard */,
 				04B6AC6C1EAFB01A00D681FF /* Info.plist */,
-				04B6AC5E1EAFB01A00D681FF /* AppDelegate.h */,
-				04B6AC5F1EAFB01A00D681FF /* AppDelegate.m */,
+				04B6AC5E1EAFB01A00D681FF /* SLVAppDelegate.h */,
+				04B6AC5F1EAFB01A00D681FF /* SLVAppDelegate.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -196,12 +196,12 @@
 		04B6AC8A1EAFB2D500D681FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04B6AC871EAFB2CE00D681FF /* Model.h */,
-				04B6AC881EAFB2CE00D681FF /* Model.m */,
-				04C33FD21EB255DF008F570E /* NetworkServises.h */,
-				04C33FD31EB255DF008F570E /* NetworkServises.m */,
-				04B6AC8B1EAFB6C000D681FF /* ContactInfo.h */,
-				04B6AC8C1EAFB6C000D681FF /* ContactInfo.m */,
+				04B6AC871EAFB2CE00D681FF /* SLVModel.h */,
+				04B6AC881EAFB2CE00D681FF /* SLVModel.m */,
+				04C33FD21EB255DF008F570E /* SLVNetworkServises.h */,
+				04C33FD31EB255DF008F570E /* SLVNetworkServises.m */,
+				04B6AC8B1EAFB6C000D681FF /* SLVContactInfo.h */,
+				04B6AC8C1EAFB6C000D681FF /* SLVContactInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -308,15 +308,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6360DE161ECDA7510080CBFA /* VKLoginViewController.m in Sources */,
-				04B6AC8D1EAFB6C000D681FF /* ContactInfo.m in Sources */,
-				04B6AC631EAFB01A00D681FF /* TableController.m in Sources */,
-				04B6AC601EAFB01A00D681FF /* AppDelegate.m in Sources */,
+				6360DE161ECDA7510080CBFA /* SLVVKLoginViewController.m in Sources */,
+				04B6AC8D1EAFB6C000D681FF /* SLVContactInfo.m in Sources */,
+				04B6AC631EAFB01A00D681FF /* SLVTableController.m in Sources */,
+				04B6AC601EAFB01A00D681FF /* SLVAppDelegate.m in Sources */,
 				04B6AC5D1EAFB01A00D681FF /* main.m in Sources */,
-				04B6AC931EAFC2A100D681FF /* ContactCell.m in Sources */,
-				04B6AC901EAFBC6B00D681FF /* DetailedInfoViewController.m in Sources */,
-				04B6AC891EAFB2CE00D681FF /* Model.m in Sources */,
-				04C33FD41EB255DF008F570E /* NetworkServises.m in Sources */,
+				04B6AC931EAFC2A100D681FF /* SLVContactCell.m in Sources */,
+				04B6AC901EAFBC6B00D681FF /* SLVDetailedInfoViewController.m in Sources */,
+				04B6AC891EAFB2CE00D681FF /* SLVModel.m in Sources */,
+				04C33FD41EB255DF008F570E /* SLVNetworkServises.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

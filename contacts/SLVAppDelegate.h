@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AppDelegate.h
 //  contacts
 //
 //  Created by iOS-School-1 on 25.04.17.
@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SLVAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 @end
 
